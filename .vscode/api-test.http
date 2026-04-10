@@ -1,0 +1,78 @@
+### ============================================
+### Tiva Master Dashboard — API Test File
+### Use with REST Client extension (humao.rest-client)
+### ============================================
+
+@baseUrl = http://localhost:4000
+@token = {{loginResponse.response.body.data.accessToken}}
+
+### ─── Health Check ───
+GET {{baseUrl}}/api/health
+
+### ─── Auth: Register ───
+# @name registerResponse
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "admin@tiva.io",
+  "password": "TivaAdmin2024!",
+  "fullName": "Tiva Admin",
+  "role": "admin"
+}
+
+### ─── Auth: Login ───
+# @name loginResponse
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@tiva.io",
+  "password": "TivaAdmin2024!"
+}
+
+### ─── Auth: Get Current User ───
+GET {{baseUrl}}/api/auth/me
+Authorization: Bearer {{token}}
+
+### ─── ERP: List Sales Orders ───
+GET {{baseUrl}}/api/erp/Sales Order?limit=10
+Authorization: Bearer {{token}}
+
+### ─── ERP: List Customers ───
+GET {{baseUrl}}/api/erp/Customer?limit=10
+Authorization: Bearer {{token}}
+
+### ─── ERP: List Items ───
+GET {{baseUrl}}/api/erp/Item?limit=10
+Authorization: Bearer {{token}}
+
+### ─── Chat: Send Message ───
+POST {{baseUrl}}/api/chat/send
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "message": "What is the current inventory status?",
+  "provider": "openai"
+}
+
+### ─── Chat: List Providers ───
+GET {{baseUrl}}/api/chat/providers
+Authorization: Bearer {{token}}
+
+### ─── Upload: List Types ───
+GET {{baseUrl}}/api/upload/types
+Authorization: Bearer {{token}}
+
+### ─── Files: List Files ───
+GET {{baseUrl}}/api/files
+Authorization: Bearer {{token}}
+
+### ─── Logs: System Logs ───
+GET {{baseUrl}}/api/logs/system?limit=20
+Authorization: Bearer {{token}}
+
+### ─── Tracker: Get Requirements ───
+GET {{baseUrl}}/api/tracker
+Authorization: Bearer {{token}}
