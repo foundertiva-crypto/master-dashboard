@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   # ---- PostgreSQL (Port 5433 — 5432 used by chatwoot) ----
   postgres:
