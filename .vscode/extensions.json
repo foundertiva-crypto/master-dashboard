@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ms-vscode.vscode-typescript-next",
+    "bradlc.vscode-tailwindcss",
+    "ms-azuretools.vscode-docker",
+    "ckolkman.vscode-postgres",
+    "humao.rest-client",
+    "ms-vscode-remote.remote-containers",
+    "eamodio.gitlens",
+    "github.vscode-pull-request-github",
+    "formulahendry.auto-rename-tag"
+  ]
+}
