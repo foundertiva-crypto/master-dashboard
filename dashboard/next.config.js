@@ -2,6 +2,9 @@
 const nextConfig = {
   output: "standalone",
   reactStrictMode: true,
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
   transpilePackages: [
     "@refinedev/antd",
     "@refinedev/core",
