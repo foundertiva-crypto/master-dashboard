@@ -5,7 +5,7 @@
 import type { DataProvider } from "@refinedev/core";
 import axios, { AxiosInstance } from "axios";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 function getAxios(): AxiosInstance {
   const instance = axios.create({ baseURL: API_URL });

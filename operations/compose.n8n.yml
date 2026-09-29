@@ -1,0 +1,16 @@
+# Optional separate stack. Reuse an existing healthy n8n instance first.
+services:
+  n8n:
+    image: ${N8N_IMAGE:?Set N8N_IMAGE to an approved exact n8n version}
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5678:5678"
+    environment:
+      GENERIC_TIMEZONE: Asia/Kolkata
+      TZ: Asia/Kolkata
+      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY:?Set and securely back up a random encryption key}
+      N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
+    volumes:
+      - n8n_data:/home/node/.n8n
+volumes:
+  n8n_data:
