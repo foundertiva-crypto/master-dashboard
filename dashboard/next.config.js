@@ -2,6 +2,9 @@
 const nextConfig = {
   output: "standalone",
   reactStrictMode: true,
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
   transpilePackages: [
     "@refinedev/antd",
     "@refinedev/core",
@@ -13,7 +16,7 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000"}/api/:path*`,
+        destination: `${process.env.API_INTERNAL_URL || "http://localhost:4000"}/api/:path*`,
       },
     ];
   },

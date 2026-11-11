@@ -8,7 +8,9 @@ RUN npm ci
 COPY dashboard/ .
 
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN npm run build
+ARG API_INTERNAL_URL=http://api:4000
+ENV API_INTERNAL_URL=$API_INTERNAL_URL
+RUN mkdir -p public && npm run build
 
 # --- Production image ---
 FROM node:20-alpine

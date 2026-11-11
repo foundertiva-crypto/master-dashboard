@@ -112,7 +112,7 @@ export default function BulkUploadPage() {
     }
   }
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
   const logColumns = [
     { title: "File", dataIndex: "file_name", key: "file_name" },
